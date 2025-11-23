@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block title %}Размещение{% endblock %}
+
+{% block content %}
+<h2>Размещение</h2>
+{% for member in crew %}
+<p>{{ member.first_name }} {{ member.last_name }} - Каюта №{{ loop.index }}{% if loop.first %} - капитан корабля{% endif %}</p>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Член экипажа{% endblock %}
+
+{% block content %}
+{% if number == 'random' %}
+    {% set selected = crew | random %}
+{% else %}
+    {% if number <= crew | length and number > 0 %}
+        {% set selected = crew[number - 1] %}
+    {% else %}
+        {% set selected = none %}
+    {% endif %}
+{% endif %}
+{% if selected %}
+<h2>{{ selected.first_name }} {{ selected.last_name }}</h2>
+<img src="{{ url_for('static', filename='members/photo/' + selected.photo) }}" class="img-fluid" style="max-height:300px;">
+<p>{{ selected.specialties | sort | join(', ') }}</p>
+{% else %}
+<p>Ошибка: член экипажа не найден.</p>
+{% endif %}
+{% endblock %}

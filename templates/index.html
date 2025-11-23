@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}Добро пожаловать!{% endblock %}
+
+{% block content %}
+<h2>Добро пожаловать!</h2>
+<ul>
+    <li><a href="/list_prof/ul">Список профессий (маркированный)</a></li>
+    <li><a href="/list_prof/ol">Список профессий (нумерованный)</a></li>
+    <li><a href="/distribution">Размещение по каютам</a></li>
+    <li><a href="/member/1">Член экипажа #1</a></li>
+    <li><a href="/member/random">Случайный член экипажа</a></li>
+    <li><a href="/room/male/25">Оформление каюты (мужчина, 25 лет)</a></li>
+    <li><a href="/room/female/18">Оформление каюты (женщина, 18 лет)</a></li>
+    <li><a href="/astronaut_selection">Запись добровольцем</a></li>
+    <li><a href="/galery">Галерея</a></li>
+</ul>
+{% endblock %}

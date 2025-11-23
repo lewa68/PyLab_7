@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block title %}Запись добровольцем{% endblock %}
+
+{% block content %}
+<h2>Запись добровольцем</h2>
+<form method="post" enctype="multipart/form-data">
+    {{ form.hidden_tag() }}
+    <div class="mb-3">
+        {{ form.surname.label(class="form-label") }}
+        {{ form.surname(class="form-control") }}
+    </div>
+    <div class="mb-3">
+        {{ form.name.label(class="form-label") }}
+        {{ form.name(class="form-control") }}
+    </div>
+    <div class="mb-3">
+        {{ form.email.label(class="form-label") }}
+        {{ form.email(class="form-control") }}
+    </div>
+    <div class="mb-3">
+        {{ form.education.label(class="form-label") }}
+        {{ form.education(class="form-control") }}
+    </div>
+    <div class="mb-3">
+        {{ form.main_profession.label(class="form-label") }}
+        {{ form.main_profession(class="form-select") }}
+    </div>
+    <div class="mb-3">
+        {{ form.sex.label(class="form-label") }}
+        {% for subfield in form.sex %}
+        <div class="form-check">
+            {{ subfield(class="form-check-input") }}
+            {{ subfield.label(class="form-check-label") }}
+        </div>
+        {% endfor %}
+    </div>
+    <div class="mb-3">
+        {{ form.motivation.label(class="form-label") }}
+        {{ form.motivation(class="form-control") }}
+    </div>
+    <div class="mb-3 form-check">
+        {{ form.stay_on_mars(class="form-check-input") }}
+        {{ form.stay_on_mars.label(class="form-check-label") }}
+    </div>
+    <div class="mb-3">
+        {{ form.photo.label(class="form-label") }}
+        {{ form.photo(class="form-control") }}
+    </div>
+    <button type="submit" class="btn btn-primary">Отправить</button>
+</form>
+{% endblock %}

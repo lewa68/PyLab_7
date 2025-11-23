@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}Галерея{% endblock %}
+
+{% block content %}
+<h2>Галерея</h2>
+
+<form method="post" enctype="multipart/form-data" class="mb-4">
+    <div class="mb-3">
+        <label for="photo" class="form-label">Загрузить фото</label>
+        <input type="file" name="photo" class="form-control" accept="image/*" required>
+    </div>
+    <button type="submit" class="btn btn-success">Добавить в галерею</button>
+</form>
+
+{% if images %}
+<div id="galleryCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        {% for img in images %}
+        <div class="carousel-item {% if loop.first %}active{% endif %}">
+            <img src="{{ url_for('static', filename='galery/' + img) }}" class="d-block w-100" style="max-height:500px; object-fit:cover;">
+        </div>
+        {% endfor %}
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#galleryCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#galleryCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+    </button>
+</div>
+{% endif %}
+{% endblock %}
